@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装函数解析search</title>
+</head>
+<body>
+<!--
+?id=5&search=ok
+获取URL中的search，通过传入对应key，返回key对应的value
+例子：传入id应该返回5
+-->
+<script>
+    function getValue(search,key) {
+    //    1，找出key第一次出现的位置
+        var start=search.indexOf(key);
+        if (start==-1){
+            return;
+        } else {
+        //   2，找到键值对，结束的位置
+            var end=search.indexOf("&",start);
+            if (end==-1){
+            //    这是最后一个键值对
+                end=search.length;
+            }
+        }
+        //3将这个键值对提取出来
+        var str=search.substring(start,end);
+        //4,key=value 获取value
+        var arr=str.split("=");
+        return arr;
+
+    }
+    var search="?id=5&search=ok"
+    alert(getValue(search,"id"));
+</script>
+</body>
+</html>

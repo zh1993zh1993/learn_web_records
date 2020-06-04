@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义对象</title>
+</head>
+<body>
+<script>
+    // //1，原始方式,直接通过new方式创建。适合创建一个对象。
+    // var person=new Object();
+    // person.name ='jack';
+    // person.qq='666666';
+    // person.showName=function () {
+    //     alert("我的名字是"+person.name)
+    // };
+    // person.showQQ=function(){
+    //     alert("我的QQ是"+person.qq)
+    // };
+    // //调用对象的方法
+    // person.showName();
+    // person.showQQ();
+    //2，构造函数方式，自定义对象
+    // function Person(name,qq) {
+    //     var person=new Object();
+    //     person.name=name;
+    //     person.qq=qq;
+    //     person.showName=function () {
+    //         alert("我的姓名是"+person.name)
+    //
+    //     };
+    //     person.showQQ=function () {
+    //         alert("我的QQ是"+person.qq)
+    //     };
+    //     return person;
+    // }
+    // //利用构造函数创建对象
+    // var p1=Person("happy","555555")
+    // p1.showName();
+    // p1.showQQ();
+    // var p2=Person("hh","59999")
+    // p2.showName();
+    // p2.showQQ();
+    // //3,this关键字
+    // function show() {
+    //     this.name="hah";
+    //     alert(this.name);
+    // }
+    // show();
+    // new show();//用在方法前创建空对象，且返回此对象
+    //使用new加构造方法创建对象
+    // function Person(name,qq) {
+    //     this.name=name;
+    //     this.qq=qq;
+    //     this.showName=function () {
+    //         alert("我的姓名是"+this.name)
+    //     };
+    //     this.showQQ=function () {
+    //         alert("我的QQ是"+this.qq)
+    //     }
+    // }
+    // var p1=new Person("heh","8888");
+    // p1.showName();
+    // p1.showQQ();
+    //原型创建对象prototype
+// Person.prototype.name='hah';
+//     function Person(name,qq) {
+//        this.name=name;
+//        this.qq=qq;
+//        this.showName=function () {
+//            alert("我的姓名是"+this.name)
+//        };
+//         this.showQQ=function () {
+//                    alert("我的QQ是"+this.qq)
+//         };
+//     };
+//     var p1=new Person("hah","5555");
+//     p1.showName();
+//     p1.showQQ();
+//     var p2=new Person("hhhh");
+//     p2.showName();
+//     function Person(name,age){
+//         this.name=name;
+//         this.age=age;
+//     }
+//    Person.prototype.showName=function () {
+//        alert("名字："+this.name);
+//    };
+//     Person.prototype.showAge=function () {
+//         alert('年龄：'+this.age);
+//     };
+//     var p1=new Person("hah","25");
+//     p1.showName();
+//     p1.showAge();
+
+</script>
+</body>
+</html>

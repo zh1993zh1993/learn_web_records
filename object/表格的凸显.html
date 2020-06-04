@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" width="500px" id="table1">
+    <thead>
+    <td>ID</td>
+    <td>姓名</td>
+    <td>年龄</td>
+    </thead>
+    <tbody class="red">
+    <tr>
+        <td>1</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+window.onload=function () {
+var oTab=document.getElementById('table1');
+var oldColor="";//存放原来的颜色
+for (var i=0;i<oTab.tBodies[0].rows.length;i++){
+    oTab.tBodies[0].rows[i].onmouseover=function () {
+        //先将本身的背景颜色存放在一个变量中
+        oldColor=this.style.backgroundColor;
+        this.style.backgroundColor='yellow';
+
+    };
+    oTab.tBodies[0].rows[i].onmouseout=function () {
+        this.style.backgroundColor=oldColor;//变量不加引号
+
+    };
+if (i%2==0){
+oTab.tBodies[0].rows[i].style.backgroundColor='red';
+} else {
+oTab.tBodies[0].rows[i].style.backgroundColor='blue';
+             }
+
+           }
+
+
+      }
+</script>
+</body>
+</html>

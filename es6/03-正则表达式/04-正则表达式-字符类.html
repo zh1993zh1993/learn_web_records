@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+字符类：
+1、字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内。
+2、[-]  方括号内部 范围符-
+-->
+<script>
+  // 字符类：[] 表示有一系列字符可供选择，只要匹配其中一个就可以
+  const rg = /[abc]/; // 只要包含其中一个，a或者b或者c，都返回为true
+  console.log(rg.test('andy'));
+  console.log(rg.test('baby'));
+  console.log(rg.test('color'));
+  console.log(rg.test('red'));// false
+  console.log('-------------');
+  const rge = /^[abc]$/;// 三选一 只有是a 或者是b 或者是c 这三个字母才返回true
+  console.log(rge.test('aa')); // false
+  console.log(rge.test('a'));  //true
+  console.log(rge.test('b')); //true
+  console.log(rge.test('c')); //true
+  console.log(rge.test('abc'));// false
+  console.log('-------------');
+  const reg1 = /^[a-z]$/;// 26个小写英文字母任何*一个*字母返回都是true
+  console.log(reg1.test('a')); //true
+  console.log(reg1.test('z')); //true
+  console.log(reg1.test(1));// false
+  console.log(reg1.test('A'));// false
+  console.log('-------------');
+  const reg2 = /^[a-zA-Z0-9_-]$/;//26个英文字母无论大小写任何*一个*字母返回都是true
+  console.log(reg2.test('a'));
+  console.log(reg2.test('B'));
+  console.log(reg2.test('8'));
+  console.log(reg2.test('-'));
+  console.log(reg2.test('_'));
+  console.log(reg2.test('!'));// false
+  console.log('-------------');
+  const reg3 = /^[^a-zA-Z0-9_-]$/; // 将^放在中括号里面，表示取反的意思，不要和边界符混淆
+  console.log(reg3.test('a'));
+  console.log(reg3.test('B'));
+  console.log(reg3.test('8'));
+  console.log(reg3.test('-'));
+  console.log(reg3.test('_'));
+  console.log(reg3.test('!'));//true
+</script>
+</body>
+</html>

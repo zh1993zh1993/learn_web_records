@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #main{
+      width: 780px;
+      margin: 0 auto;
+    }
+    input{
+      width: 80px;
+    }
+    table{
+      width: 450px;
+      border: 1px solid grey;
+      margin: 15px auto;
+      border-collapse: collapse;
+    }
+    th,td{
+      border: 1px solid grey;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+<div id="main">
+  按照价格查询：<input type="text" class="pre"> --- <input type="text" class="suf"> <button class="search">搜索</button>
+  按照商品名称查询：<input type="text" class="input"><button class="find">查询</button>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>产品名称</th>
+    <th>价格</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+<script>
+  const prodList = [
+    {
+      id:1,
+      name:'小米',
+      price:3999
+    },
+    {
+      id:2,
+      name:'OPPO',
+      price:999
+    },
+    {
+      id:3,
+      name:'荣耀',
+      price:1299
+    },
+    {
+      id:4,
+      name:'华为',
+      price:1999
+    }
+  ]
+  const tbody= document.querySelector('tbody');
+  const pre =document.querySelector('.pre');
+  const suf =document.querySelector('.suf');
+  const search =document.querySelector('.search');
+  const find =document.querySelector('.find');
+  const input =document.querySelector('.input');
+
+
+  // 把数据全部填充到tbody里面去
+  function addProdList(data){ //data传数组对象，多个产品
+    tbody.innerHTML='';
+    data.forEach(item=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>'+item.id + '<td/>'+item.name
+          +'<td>'+item.price+'</td>'
+      tbody.appendChild(tr);
+    })
+
+  }
+  addProdList(prodList)
+  search.onclick=function(){
+    const newProdList = prodList.filter(item=>{
+      return item.price>=pre.value&&item.price <=suf.value
+    });
+    // 把筛选完的对象渲染到页面
+    addProdList(newProdList)
+  }
+  find.onclick=function(){
+    const arr = [];
+    // 查询数组中唯一的元素，用some方法更合适。因为找到这个元素就不再进行循环，效率更高
+    prodList.some(item=>{
+      if(item.name==input.value){
+        arr.push(item)
+        return true // return后面必须写true 找到必须返回true
+      }
+    })
+    addProdList(arr)
+  }
+</script>
+</body>
+</html>

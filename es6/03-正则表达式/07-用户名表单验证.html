@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  span{
+    color: #aaa;
+    font-size: 14px;
+  }
+  .right{
+    color: green;
+  }
+  .wrong{
+    color: red;
+  }
+</style>
+<body>
+<!--
+案列：用户名表单验证
+功能需求：
+1、如果用户名输入合法，则后面提示信息为：用户名合法，并且颜色为绿色
+2、如果用户名输入不合法，则后面提示信息为：用户名不符合规范，并且颜色为红色
+-->
+<input type="text" class="uname"> <span>请输入用户名</span>
+<script>
+  const  reg = /^[a-zA-Z0-9_-]{6,16}$/;
+  const uname = document.querySelector('.uname');
+  const span = document.querySelector('span')
+  uname.onblur = function () {
+    if (reg.test(this.value)){
+      span.className = 'right'
+      span.innerHTML = '用户名格式输入正确'
+    } else {
+      span.className = 'wrong'
+      span.innerHTML = '用户名格式输入错误'
+    }
+  }
+</script>
+</body>
+</html>

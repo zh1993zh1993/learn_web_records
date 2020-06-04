@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+姓名:<input type="text"value=""id="name">
+<input type="button"value="搜索"id="btn">
+<table border="1" width="500px" id="table1">
+    <thead>
+    <td>ID</td>
+    <td>姓名</td>
+    <td>年龄</td>
+    <td>操作</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    window.onload=function () {
+        var oTab = document.getElementById('table1');
+        var oName = document.getElementById('name');
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick=function () {
+            for (var i=0;i<oTab.tBodies[0].rows.length;i++){
+               var sTable=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+               var sTxt=oName.value.toLowerCase();
+               if (sTable==sTxt){
+                   oTab.tBodies[0].rows[i].style.backgroundColor='yellow';
+               }else {
+                   oTab.tBodies[0].rows[i].style.backgroundColor='';
+               }
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

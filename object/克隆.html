@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj={
+        name:"ah",
+        age:13,
+        card:['visa','master'],
+        wife:{
+            name:'hhh',
+            son:{
+                name:"jjj",
+            }
+        }
+    }
+    var obj1={
+
+    }
+//     //1,判断是否有原始值
+// //    2，判断数组还是对象
+// //    3，建立相应的数组或对象
+//    4，递归
+//深层拷贝
+    function  deepClone(origin,target) {
+        var target=target||{};
+        toStr=Object.prototype.toString,
+        arrStr="[Object Array ]";
+        for (var prop in origin){
+            if (origin.hasOwnProperty(prop)){
+                if (origin[prop]!==null&&typeof (origin[prop])=='object'){
+                    // if(toStr.call(origin[prop])==arrStr){
+                    //     target[prop]=[];
+                    // }else {
+                    //     target[prop]={};
+                    // }转换成三目运算符
+                    target[prop]=(toStr.call(origin[prop])==arrStr)?[]:{};
+                    deepClone(origin[prop,target[prop]])
+                } else {
+                    target[prop]=origin[prop];
+                }
+            }
+        }
+        return target;
+    }
+</script>
+</body>
+</html>

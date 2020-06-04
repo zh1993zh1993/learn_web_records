@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+let：ES6中新增的用于声明变量的关键字。
+1、let声明的变量只有在所处于的块级有效
+2、不存在变量提升
+3、暂时性死区
+-->
+<script>
+  /*
+  let a = 10;
+  console.log(a);// 10
+  // 大括号内就属于块级作用域，所以外面是访问不到let声明的变量
+  if (true){
+    let a = 10;
+    if (true){
+      let c = 30;
+    }
+    console.log(c); // 报错 c is not defined
+  }
+  console.log(a); // 报错 a is not defined*/
+/*  在在一个大括号中，使用let关键字声明的变量才具有块级作用域，var关键字是不具备这个特点的
+if (true){
+  let num = 100;
+  var abc = 200;
+}
+  console.log(abc);// 200
+  console.log(num);// num is not defined*/
+
+/* 防止循环变量变成全局变量
+for (let i = 0;i<2;i++){
+
+}
+  console.log(i);// 报错 如果换成var 则会输出2*/
+
+/*不存在变量提升
+  console.log(a); // a is not defined
+  let a = 20;*/
+
+/* 暂时性死区
+  var num =10;
+  if (true){
+    console.log(num);
+    let num = 20;
+  } // 报错 num没有声明 ，如果用var num打印出10*/
+
+/* 经典面试题 此题的关键点在于变量i是全局的，函数执行时输出的都是全局作用域下的值
+var arr = [];
+for (var i = 0;i<2;i++){
+  arr[i] = function () {
+    console.log(i);
+  }
+}
+arr[0](); // 2
+arr[1](); // 2
+*/
+
+/* 此题的关键点在于，每次循环都会产生一个块级作用域，每个块级作用域中的变量都是不同的，
+函数指向时输出的是自己的上一级（循环产生的块级作用域）作用域下的值 */
+  let arr = [];
+  for (let i = 0;i<2;i++){
+    arr[i] = function () {
+      console.log(i);
+    }
+  }
+  arr[0]();// 0
+  arr[1](); //1
+</script>
+</body>
+</html>

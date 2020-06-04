@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+2、apply方法
+apply()方法调用一个函数。简单理解为调用函数的方式，但是他可以改变函数的this指向
+fun.apply(thisArg,[argsArray])
+thisArg:在fun函数运行时指定的this值
+argsArray:传递的值必须包含在数组里面
+返回值就是函数的返回值，因为它就是调用函数
+-->
+<script>
+  const o = {
+    name:'andy'
+  }
+  function fn(arr) {
+    console.log(this);
+    console.log(arr); // 打印的字符串'pink'
+
+  };
+  fn.apply(o,['pink']) // 1.也是调用函数，可以改变函数内部的this指向
+//  2.但是他的参数必须是数组（伪数组）
+
+  // 3.apply 的主要应用 比如说可以利用apply 借助于数学内置对象求最大值
+  // Math.max() 求数字最大值
+
+  let arr = [1,66,3,99,4];
+  let max =Math.max.apply(Math, arr);// Math是调用者，所以要指向他
+  let min =Math.min.apply(Math, arr);
+  console.log(max,min);
+
+  // console.log(Math.max.apply(null, arr));
+</script>
+</body>
+</html>

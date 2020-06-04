@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS对象</title>
+</head>
+<body>
+<script>
+/*系统内置对象：Array数组对象，date日期对象，string字符串对象，math数学对象等
+* console.log(控制台输出，方便改代码)*/
+//    object：对象
+//     var deng={
+//         //属性名，属性值
+//         lastName:"Deng",
+//         age:40,
+//         sex:undefined,
+//         wife:"xiaoliu",
+//         father:"dengdaye",
+//         handsome:false
+//     }
+//    document.write(deng.lastName); // 取值
+//  document.write(deng.lastName="olddeng")   // 赋值
+//     var num=[1,2,3,4,5];
+//     for (var i=0;i<num.length;i++){
+//         num[i]+=1;
+//     }
+//     var mrDeng={
+//             name:"MrDeng",
+//             age:40,
+//             sex:"male",
+//             health:100,
+//         smoke:function () {
+//             console.log('喝酒很好');
+//             this.health++;
+//         },
+//     };
+//     // 给其赋值
+//     mrDeng.wife='小张';
+//     mrDeng.smoke();
+//     delete mrDeng.sex;//删除某个值
+// var mrDeng={
+//     prepareWife:"xiaowang",
+//     name:"laodeng",
+//     sex:"male",
+//     gf:"xiaoliu",
+//     wife:"",
+//     divorce:function () {
+//        delete this.wife;
+//        this.gf=this.prepareWife;
+//     },
+//     getMarried:function () {
+//         this.wife=this.gf;
+//     },
+//  changePrepareWife:function (someone) {
+//         this.prepareWife=someone;
+//  }
+//     }
+//对象的创建方法
+//  1，   var obj={} PlainObject  对象字面量/对象直接量
+//    2， 构造函数
+//    （1）系统自带的构造函数  object（）Array() Number()
+//         var obj= new object()
+//           obj.name='aaa'
+//    （2）自定义
+//     function Car(color) {
+//         this.color=color;
+//         this.name='BMW';
+//         this.height='1400';
+//         this.long='4999';
+//         this.health=100;
+//         this.weight=1000;
+//         this.run=function () {
+//             this.health--;
+//
+//         }
+//
+//     }
+//     var car=new Car('red');
+//     var car1=new Car();
+//     function Student(name,age,sex) {
+//         this.name=name;
+//         this.age=age;
+//         this .sex=sex;
+//         this.grade=2017;
+//     }
+// var student=new Student('张珊',16,'male');
+// var str="abcd"
+//     str.length=2;
+// console.log(str);
+//输出结果abcd
+//     var x=1,y=z=0;
+//     function add(n) {
+//         return n=n+1
+//     }
+//     y=add(x);
+//     function add(n) {
+//         return n=n+3
+//     }
+//     z=add(x);
+//     //求xyz的值，输出结果：1,4,4
+//当前字符位的Unicode》255，那么该字符长度为2，小于等于255为1
+// var str="asd;lfjoidfo";
+// function byTestLength(str) {
+//     var count=str.length;
+//     for (var i=0;i<=str.length;i++){
+//        if ( str.charCodeAt(i)>255){
+//            count++;
+//        }
+//     }return count;
+//
+// }
+// //    第二种方法
+// function byTestLength(str) {
+//     var count=0;
+//     for (var i=0;i<str.length;i++){
+//       if (str.charCodeAt(i)>255){
+//           count+=2;
+//       }else{
+//           count++
+//       }
+//     }return count;
+// }
+// Person.prototype.lastName="hah";
+//     function Person(name) {
+// this.name=name;
+//     }
+//     var person=new Person('小张');
+   // Person.prototype.lastName="hhh"改祖先
+   //  delete Person.prototype.lastName;删祖先
+   //     Car.prototype={
+   //         name:"hah",
+   //         lang:4900,
+   //         height:1000,
+   //     };
+   //     function Car() {
+   //     }
+   //     var car=new Car();
+//
+// Person.prototype.name='sunny';
+//     function Person() {
+//
+//     };
+//     var person=new Person();
+//     Person.prototype.name='xiaoz';
+// //     var obj=Object.prototype{原型}
+//     var obj={name:'hh',age:15};
+//     var obj1=Object.create(obj);
+//     var num=123;
+//     num=num.toString();将123转换成字符串“123”
+// function Person(name,age){
+//     this.name=name;
+//     this.age=age;
+// }
+// var person=new Person();
+// var obj={
+// };
+// Person.call(person,'wang',300);
+    function Person(name,age,sex) {
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+    }
+    function Student(name,age,sex,male,grade) {
+        Person.call(this,name,age,sex);//调用person的内容，封装
+        this.male=male;
+        this.grade=grade;
+    }
+    var student=new Student('sunny',123,'male',139,2017)
+</script>
+</body>
+</html>

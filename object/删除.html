@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除</title>
+</head>
+<body>
+<ul id="uu">
+    <li>aaaa<a href="#">删除</a></li>
+    <li>bbbb<a href="#">删除</a></li>
+    <li>cccc<a href="#">删除</a></li>
+    <li>dddd<a href="#">删除</a></li>
+    <li>eeee<a href="#">删除</a></li>
+</ul>
+
+<script>
+    window.onload=function () {
+        var ul=document.getElementById('uu');
+        var oAs=ul.getElementsByTagName('a');
+        for (var i=0;i<oAs.length;i++) {
+               oAs[i].onclick=function () {
+                   ul.removeChild(this.parentNode);
+               }
+            }
+    }
+</script>
+</body>
+</html>

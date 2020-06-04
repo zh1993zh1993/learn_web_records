@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function Star(uname,age) {
+    this.uname = uname;
+    this.age=age;
+  }
+  Star.prototype.sing=function () {
+    console.log('我会唱歌');
+  }
+  let ldh = new Star('刘德华',18)
+//  1、只要是对象就有__proto__原型，指向原型对象
+  console.log(Star.prototype);
+  // 2、我们Star原型对象里面的__proto__原型指向的是Object.prototype
+  console.log(Star.prototype.__proto__ === Object.prototype);
+  // 3、我们Object.prototype原型对象里面的__proto__原型  指向为 null
+  console.log(Object.prototype.__proto__);
+</script>
+</body>
+</html>

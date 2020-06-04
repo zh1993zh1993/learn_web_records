@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+Set 数据结构
+实例方法：
+1、add(value):添加某个值，返回Set结构本身
+2、delete(value):删除某个值，返回一个布尔值，表示删除是否成功
+3、has(value):返回一个布尔值，表示该值是否为Set成员
+4、clear():清楚所有成员，没有返回值
+-->
+<script>
+  const s4 = new Set();
+  s4.add('a').add('b');
+  console.log(s4.size);
+  s4.delete('a');
+  console.log(s4.size);
+  const r2 = s4.has('a')
+  console.log(r2);// false
+  s4.clear();
+  console.log(s4.size);// 0
+</script>
+</body>
+</html>

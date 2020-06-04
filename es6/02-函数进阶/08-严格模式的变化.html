@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+严格模式中的变化：严格模式对JS的语法和行为都做了一些改变
+1、变量规定
+1）在正常模式中。如果一个变量没有声明赋值，默认是全局变量。严格模式禁止这种用法，
+变量都必须先用var命令声明，然后再使用
+2）严禁删除已经声明变量。例如，delete x；语法是错误的
+
+2、严格模式下this指向问题
+1）以前在全局作用域函数中的this指向window对象
+2）严格模式下全局作用域中函数的this是undefined
+3）以前构造函数时不加new也可以调用，当普通函数，this指向全局对象
+4）严格模式下，如果构造函数不加new调用，this会报错
+5）new实例化的构造函数指向创建的对象实例
+6）定时器里面的this还是指向的window
+7）事件、对象还是指向调用者
+
+3、函数变化
+1）函数不能有重名的参数
+2）函数必须声明在顶层，新版本的JS会引入‘块级作用域’（ES6中已引入）。
+为了与新版本接轨，不允许在非函数的代码块内声明函数。
+-->
+<script>
+  'use strict';
+  /*1.我们的变量名必须先声明再使用
+  num = 10;
+  console.log(num);
+  //2.我们不能随意删除已经声明好的变量
+  var num =10;
+  console.log(num);
+  delete num; // 报错
+  //3. 严格模式下全局作用域中函数的this是undefined
+  function fn() {
+    console.log(this);//undefined
+  }
+  // 4.严格模式下，如果构造函数不加new调用，this指向的是undefined 如果给他赋值则会报错
+  function Star() {
+    this.sex = '男';
+    console.log(this);// 报错
+  }
+     // Star();//加上new就不会报错
+    var ldh = new Star();
+  console.log(ldh.sex);
+  // 5.定时器里面的this还是指向的window
+  setTimeout(()=>{
+    console.log(this);
+  },2000)
+  //6. 严格模式下不能有重名的参数
+  function fn(a,a) {
+    console.log(a + a);
+  }
+  fn(1,2) // 普通模式下，输出为4，但能实现参数名相同的加减，只不过第二个参数会覆盖前一个，从而导致结果为4*/
+  if (true){
+    function f() {} //语法错误
+    fn()
+  }
+  for (var i=0;i<5;i++){
+    function f1() {} //语法错误
+    f1()
+  }
+  function baz() { //合法
+    function eit() { //同样合法
+
+    }
+  }
+</script>
+</body>
+</html>

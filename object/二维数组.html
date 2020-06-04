@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--二维数组:在数组中元素还为数组-->
+<script>
+    // var arr=[[],[],[],[],[]];
+ var count=0;//从1到25累加的中间变量
+ var arr=[];
+ for (var i=0;i<5;i++){//生成五个数组，存储在arr中
+     var newArr=[];
+ //    每一个newArr中都有五个数
+     for (var j=0;j<5;j++){
+         newArr.push(++count);
+     }
+     arr.push(newArr);
+ }
+ // alert(arr[0][0])第一组数的第一个数字
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+es6之前并没有给我们提供extends继承，我们可以通过构造函数+原型对象模拟实现继承，被称为组合继承
+call()调用这个函数，并且修改函数运行时的this指向
+fun.call(thisAgr,arg1,arg2....)
+thisArg:当前调用函数的this指向对象
+arg1,arg2：传递的其他参数
+-->
+<script>
+  function fn(x,y) {
+    console.log('我想喝咖啡');
+    console.log(this);// 指向调用者
+    console.log(x + y);
+  }
+  let o ={
+    name:'andy'
+  };
+  // fn()
+//  call() 1、可以调用函数
+//   fn.call();
+//   call() 2、可以改变这个函数的this指向
+  fn.call(o,1,2) //此时这个函数的this 就指向了o这个对象
+</script>
+</body>
+</html>

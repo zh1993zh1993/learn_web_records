@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+改变函数内部的this指向
+JS为我们专门提供了一些函数方法来帮我们更优雅的处理函数内部this的指向问题
+常用的有bind()、call()、apply()三种方法
+1、call()方法
+call()调用这个函数，并且修改函数运行时的this指向
+fun.call(thisAgr,arg1,arg2....)
+-->
+<script>
+  const o = {
+    name:'andy'
+  }
+  function fn(a,b) {
+    console.log(this);
+    console.log(a + b);
+  }
+  fn.call(o,1,2)
+//  call的主要作用可以实现继承
+  function Father(uname,age,sex) {
+    this.uname=uname;
+    this.age=age;
+    this.sex=sex;
+  }
+  function Son(uname,age,sex) {
+    // 调用父元素，且更改this指向，儿子继承父亲的this，从而继承里面的属性
+    Father.call(this,uname,age,sex)
+  }
+  const son =new Son('刘德华',18,'男')
+  console.log(son);
+</script>
+</body>
+</html>

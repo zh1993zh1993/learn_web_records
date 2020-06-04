@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+箭头函数:简化函数定义语法
+函数体中只有一句代码，且代码的执行结果就是返回值，可以省略大括号。
+如果形参只有一个，也可以小括号
+箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this
+-->
+<script>
+  /*
+    const fn = () =>{
+      console.log(123);
+    };
+    fn();
+
+    const sum =(n1,n2) =>n1 + n2;
+    console.log(sum(2, 3));
+
+    const fn1 = v =>console.log(v);
+    fn1(20)*/
+
+  function fn() {
+    console.log(this);// obj
+    return ()=>{
+      console.log(this);// obj
+    }
+  }
+  const  obj = {name:'zhangsan'}
+     const resFn  = fn.call(obj)
+  resFn()
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+括号总结：
+1、大括号  量词符.   里面表示重复次数
+2、中括号 字符集合。匹配方括号中的任意字符
+3、小括号 表示优先级
+可以在线测试: https://c.runoob.com/
+-->
+<script>
+  // 中括号 字符集合。匹配方括号中的任意字符
+  const reg1 = /^[abc]$/; //  a 也可以 b 也可以 c 也可以 a || b || c
+ // 大括号  量词符.   里面表示重复次数
+  const reg = /^abc{3}$/; // 他只是让c重复3次
+  console.log(reg.test('abc'));
+  console.log(reg.test('abcabcabc'));
+  console.log(reg.test('abccc')); // true
+  console.log('----------------------');
+  // 小括号 表示优先级
+  const reg2 = /^(abc){3}$/; // 他是让abc重复3次
+  console.log(reg2.test('abc'));
+  console.log(reg2.test('abcabcabc'));// true
+  console.log(reg2.test('abccc'));
+</script>
+</body>
+</html>

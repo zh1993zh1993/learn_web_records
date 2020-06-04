@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+类 constructor 构造函数：用于传递参数返回实例对象，通过new命令生成对象实例时，自动调用
+该方法，如果没有显示定义，类内部会自动创建一个constructor()
+______________________________
+通过class关键字创建类，类名首字母定义为大写
+生成实例 new 不能省略
+语法规范：创建类 类名后面不要加小括号，生成实例 类名后面要加小括号，构造函数不需要加function
+-->
+
+<!--
+类添加方法
+-->
+<script>
+    //1.创建类 class 创建一个明星类
+    class Star {
+        constructor(uname,age){
+            this.uname=uname;
+            this.age=age;
+        }
+        sing(song){
+                // console.log('我唱歌')
+            console.log(this.uname+song)
+        }
+    }
+//    2.利用类创建对象 new
+   const ldh=new Star('刘德华',18);
+    const zxy=new Star('张学友',20);
+    console.log(ldh)
+    console.log(zxy)
+    //(1)类类名所有函数不需要写function
+//    （2）多个函数方法之间不需要加逗号分隔
+    ldh.sing('冰雨');
+    zxy.sing('李香兰');
+</script>
+</body>
+</html>

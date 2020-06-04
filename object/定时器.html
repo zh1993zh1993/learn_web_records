@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            border: 3px solid paleturquoise;
+            text-align: right;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<img src="../images5/1.jpg">
+ 分钟：<input type="text"value="0">
+ 秒数：<input type="text"value="0">
+<script>
+    var minutesNode=document.getElementsByTagName('input')[0];
+    var secondsNode=document.getElementsByTagName('input')[1];
+    var minutes=0,
+        secondes=0;
+    var timer=setInterval(function () {
+        secondes++;
+        if (secondes==60){
+            secondes=0;
+            minutes++;
+        }
+        secondsNode.value=secondes;
+
+        minutesNode.value=minutes;
+        if (minutes==3){
+            clearInterval(timer);
+
+        }
+    },1000)
+
+
+    // var img=document.getElementsByTagName('img')[0];
+    // var i=0;
+    // var timer=setInterval(function () {
+    // document.write('img')
+    // },1000);//每隔1000毫秒执行里面的函数
+    // setInterval(timer);
+    // var timer=setTimeout(function () {
+    //     document.write('img')
+    // },1000)
+    // clearTimeout(timer);//清除
+</script>
+</body>
+</html>

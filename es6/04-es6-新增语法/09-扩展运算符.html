@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<!--
+ES6的内置对象扩展
+Array的扩展方法
+扩展运算符(展开语法)：
+1、扩展运算符可以将数组或者对象转为用逗号分隔的参数序列
+2、扩展运算符可以应用于合并数组
+3、将数组或可遍历对象转换为真正的数组
+4、将类数组或可遍历对象转换为真正的数组
+-->
+<script>
+  /* 扩展运算符可以将数组或者对象转为用逗号分隔的参数序列
+  let ary = ['a','b','c'];
+  console.log(...ary);// a b c*/
+
+  /*合并数组的方法1：扩展运算符可以应用于合并数组
+  let ary1 = [1,2,3];
+  let ary2 = [4,5,6];
+  let ary3 = [...ary1,...ary2];
+  console.log(ary3);*/
+  /*合并数组的方法2：push
+  let ary1 = [1,2,3];
+  let ary2 = [4,5,6];
+  ary1.push(...ary2);
+  console.log(ary1);*/
+  /* 将伪数组转为真正的数组*/
+  let oDivs = document.getElementsByTagName('div')
+  console.log(oDivs);
+  let ary = [...oDivs]
+  console.log(ary);
+  console.log(ary.push('a'));
+</script>
+</body>
+</html>

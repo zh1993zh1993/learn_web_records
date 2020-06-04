@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--往ul中添加10000个里-->
+<ul id="uu"></ul>
+<script>
+    window.onload=function () {
+        var ul=document.getElementById('uu');
+        var fragment=document.createDocumentFragment();
+        for (var i=0;i<10000;i++){
+            var liNode=document.createElement('li');
+            // ul.appendChild(liNode);
+            // 创建文档碎片,将创建的li元素，添加到碎片中
+            fragment.appendChild(liNode);
+        }
+        ul.appendChild(fragment);
+    }
+</script>
+</body>
+</html>

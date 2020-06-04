@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+量词符：量词符用来设定某个模式出现的次数
+*        重复零次或更多次
++        重复一次或更多次
+?        重复零次或一次
+{n}      重复n次
+{n,}     重复n次或更多次
+{n,m}    重复n到m次
+-->
+<script>
+  // 量词符：量词符用来设定某个模式出现的次数
+  /* 简单理解：就是让下面的a这个字符重复多少次
+  const reg = /^a$/;*/
+//  *   相当于>=0 可以出现0次或者很多次
+  const reg = /^a*$/;
+  console.log(reg.test(''));//true
+  console.log(reg.test('a'));//true
+  console.log(reg.test('aaa'));//true
+  console.log('--------------------------------');
+  // +    相当于>=1 可以出现1次或者很多次
+  const reg1 = /^a+$/;
+  console.log(reg1.test(''));//false
+  console.log(reg1.test('a'));//true
+  console.log(reg1.test('aaa'));//true
+  console.log('--------------------------------');
+// ? 相当于 1||0
+  const reg2 = /^a?$/;
+  console.log(reg2.test(''));//true
+  console.log(reg2.test('a'));//true
+  console.log(reg2.test('aaa'));//false
+  console.log('--------------------------------');
+//  {3 } 就是重复3次
+  const reg3 = /^a{3}$/;
+  console.log(reg3.test(''));//false
+  console.log(reg3.test('a'));//false
+  console.log(reg3.test('aaaa'));//false
+  console.log(reg3.test('aaa'));//true
+  console.log('--------------------------------');
+  // {3,}大于等于3
+  const reg4 = /^a{3,}$/;
+  console.log(reg4.test(''));//false
+  console.log(reg4.test('a'));//false
+  console.log(reg4.test('aaaa'));//true
+  console.log(reg4.test('aaa'));//true
+  console.log('--------------------------------');
+  // {3,16}大于等于3 并且 小于等于16
+  const reg5 = /^a{3,16}$/;
+  console.log(reg5.test(''));//false
+  console.log(reg5.test('a'));//false
+  console.log(reg5.test('aaaaaaaaaaaaaaaaa'));//false 超过16
+  console.log(reg5.test('aaa'));//true
+</script>
+</body>
+</html>

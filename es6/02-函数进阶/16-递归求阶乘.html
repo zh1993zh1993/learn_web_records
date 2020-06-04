@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+利用递归求阶乘：求1*2*3*4...*n 阶乘
+-->
+<script>
+  function fn(n) {
+    if (n===1){
+      return 1
+    }
+    return n * fn(n-1)
+  }
+  console.log(fn(3));
+/*  详细思路 加入用户输入的是3
+*   3*fn(3-1) --> return 3*fn(2) -->return 3*(2*fn(2-1))-->return 3*(2*1) -->return 6
+* */
+
+</script>
+</body>
+</html>

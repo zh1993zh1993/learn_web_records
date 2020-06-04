@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /* 没有访问局部变量，所以不是闭包函数
+  var name = 'The Window'
+  var object = {
+    name:'My Object',
+    getNameFunc:function () {
+      return function () {
+        return this.name
+      }
+    }
+  };
+  console.log(object.getNameFunc()());输出：The Window
+   // 立即执行函数的this指向的是window
+   类似于
+  var f = object.getNameFunc();
+  var f = function () {
+    return this.name
+  }
+  f();*/
+
+  // 产生了闭包，因为that是局部变量的保存，而最后调用了局部变量
+  var name = 'The Window';
+  var object = {
+    name:'My Object',
+    getNameFunc:function () {
+      var that = this; // 变量所在的函数就是闭包函数
+      return function () {
+        return that.name
+      }
+    }
+  };
+  console.log(object.getNameFunc()());
+  /* 类似于
+  var f = object.getNameFunc();
+  var f = function () {
+    return that.name
+  }
+  f();*/
+</script>
+</body>
+</html>

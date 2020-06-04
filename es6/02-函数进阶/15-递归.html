@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+递归：一个函数可以在内部调用其本身（函数的内部自己调用自己），那么这个函数就是递归函数
+递归函数的作用和循环效果一样
+由于递归很容易发生'栈溢出'错误（stack overflow），所以 必须要加退出条件 return
+-->
+<script>
+  var num = 1;
+  function fn() {
+    console.log('我要打印6句话');
+    if (num===6){
+      return // 递归里面必须加退出条件
+    }
+    num++;
+    fn();
+  }
+  fn()
+</script>
+</body>
+</html>

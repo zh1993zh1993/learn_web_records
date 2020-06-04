@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+ES5新增方法概述
+数组方法：迭代遍历方法：forEach()、map()、filter()、some()、every()
+字符串方法
+对象方法
+-->
+<!--
+
+-->
+<!--
+
+-->
+<script>
+  /* forEach()遍历数组
+  forEach():array.forEach(function(currentValue,index,arr))
+  currentValue：数组当前的值
+  index：数组当前项的索引
+   arr：数组对象本身
+________________________________
+  let arr = [1,2,3];
+  let sum =0;
+  arr.forEach((value,index,array)=> {
+    console.log('每个数组元素' + value);
+    console.log('每个数组索引' + index);
+    console.log('每个数组对象本身' + array);
+    sum+=value;
+  });
+  console.log(sum);*/
+
+  // _______________分界线_________________
+
+  /* filter()筛选数组
+  filter()方法，创建一个新的数组，新的数组元素是通过检查指定数组中符合条件的所有元素，主要用于筛选数组
+  注意：他直接返回一个新数组
+  filter():array.filter(function(currentValue,index,arr))
+  currentValue：数组当前的值
+  index：数组当前项的索引
+  arr：数组对象本身
+
+__________________________
+
+  let arr = [12,66,4,88,3,7];
+  let newArr = arr.filter((value,index)=>{
+    // return value>=20;
+    return value % 2 ===0 //求所有偶数
+  });
+  console.log(newArr);*/
+
+  // _______________分界线_________________
+/*
+some()方法用于检测数组中的元素是否满足指定条件，通俗点，查找数组中是否有满足条件的元素
+注意：它的返回值是布尔值，如果找到这个元素就返回true，如果找不到就返回false
+如果找到第一个满足条件的元素，则终止循环，不再继续查找
+  some():array.some(function(currentValue,index,arr))
+  currentValue：数组当前的值
+  index：数组当前项的索引
+  arr：数组对象本身
+* */
+  let arr = [10,30,4];
+  const flag = arr.some((value)=>{
+    // return value >= 20;
+    return value < 3;
+  })
+  console.log(flag);
+  let arr1 = ['red','pink','blue'];
+  const flag1=arr1.some((value)=>{
+    return value == 'pink'
+  })
+  console.log(flag1);
+//  1.filter 也是查找满足条件的元素，返回的是一个数组，而且是把所有满足条件的元素返回回来，到新的数组里
+//  2.some  是查找满足条件的元素是否存在，返回的是一个布尔值，如果查找到第一个满足条件的元素就终止循环
+</script>
+</body>
+</html>

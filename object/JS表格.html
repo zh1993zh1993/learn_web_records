@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom表格应用</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<table border="1" width="500px" id="table1">
+    <thead>
+    <td>ID</td>
+    <td>姓名</td>
+    <td>年龄</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>lucy</td>
+        <td>19</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    // window.onload=function () {
+    //     var oTab=document.getElementById('table1');
+    // //    alert( oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].getElementsByTagName('td')[1].innerHTML);
+    // // }表格里特有的调出属性
+    // alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);}
+//    表格隔行变色,rows是行
+    window.onload=function () {
+        var oTab=document.getElementById('table1');
+        for (var i=0;i<oTab.tBodies[0].rows.length;i++){
+            if (i%2==0){
+                oTab.tBodies[0].rows[i].style.backgroundColor='red';
+            } else {
+                oTab.tBodies[0].rows[i].style.backgroundColor='blue';
+            }
+        }
+    }
+</script>
+</body>
+</html>

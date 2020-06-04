@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--标签：css-->
+<!--元素：js-->
+<!--节点：dom-->
+<ul id ="uu">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    window.onload=function () {
+        var oul=document.getElementById('uu');
+        // alert(oul.childNodes.length);
+        for (var i=0;i<oul.childNodes.length;i++){
+            //判断他的元素节点 元素节点1
+            if (oul.childNodes[i].nodeType==1){
+                oul.childNodes[i].style.backgroundColor='red';
+            }
+        }
+        // alert(oul.childNodes.length[i].nodeType)
+        // }
+
+    }
+</script>
+
+</body>
+</html>

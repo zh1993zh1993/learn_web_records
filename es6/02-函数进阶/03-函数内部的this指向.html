@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>点击</button>
+<!--
+函数内的this指向，是当我们调用函数的时候确定的。调用的方式不同决定了this的指向不同
+一般指向我们的调用者
+*调用方式*           *this指向*
+普通函数调用         window
+构造函数调用         实例对象 原型对象里面的方法也指向实例对象
+对象方法调用         该方法所属对象
+事件绑定方法         绑定事件对象
+定时器函数           window
+立即执行函数         window
+-->
+
+<script>
+  /*1、普通函数  this指向window*/
+  function fn() {
+    console.log('普通函数的this'+this);
+  }
+  fn();
+  // fn.call()
+
+  /*2、对象的方法 this指向的是对象 o ,因为o对象调用了*/
+  const o = {
+    sayHi:function () {
+      console.log('对象方法的this'+this);
+    }
+  }
+  o.sayHi()
+
+  //  3、构造函数 this指向的是ldh的实例对象
+  function Star() {
+    console.log('构造函数的this'+this);
+    Star.prototype.sing=function () {
+      // 原型对象的this指向的也是ldh这个实例对象
+    }
+  }
+ const ldh =  new Star();
+
+  //  4、绑定事件函数 this指向的是函数的调用者 btn这个按钮对象
+  let btn = document.querySelector('button')
+  btn.onclick = function () {
+    console.log('绑定事件函数的this：' + this);
+  }
+/* 5、定时器函数 this指向的也是window*/
+  window.setInterval(function () {
+    console.log('定时器的this：' + this);
+  },1000)
+  //  6、立即执行函数 this还是指向window
+  //  如果上面有window执行定时器就会报错，但下面的代码是没有错的
+  (function () {
+    console.log('立即执行函数的this' + this);
+  })()
+</script>
+</body>
+</html>

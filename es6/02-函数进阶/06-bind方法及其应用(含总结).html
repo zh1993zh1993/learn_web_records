@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+bind()方法不会调用函数。但是能改变函数内部this指向
+fun.bind(thisAgr,arg1,arg2....)
+thisArg:在fun函数运行时指定的this值
+arg1,arg2：传递的其他参数
+返回由指定的this值和初始化参数改造的*原函数拷贝*
+-->
+<button>点击</button>
+<button>点击</button>
+<button>点击</button>
+<!--
+
+  /*3.bind() 绑定 捆绑的意思
+  const o ={
+    name:'andy'
+  }
+  function fn(a,b) {
+    console.log(this);
+    console.log(a + b);
+  }
+  const f= fn.bind(o,1,2);//只是绑定，没有执行log
+  f()*/
+  // 1.不会调用原来的函数  可以改变原来函数内部的this 指向
+//  2.返回的是原函数改变this之后产生的新函数
+//  3.如果有的函数不需要立即调用，但是又想改变函数内部的this指向，此时用bind方法最合适
+//  4.有一个按钮，点击之后就禁用这个按钮，3秒钟之后开启这个按钮
+  /*
+  let btn = document.querySelector('button')
+  btn.onclick = function () {
+    this.disabled = true; // 这个this 指向的是btn 这个按钮
+    setTimeout(function () {
+      this.disabled = false // 定时器函数里面的this 指向是window 用了bind后指向了btn
+    }.bind(this),3000)// 这个this是在定时器外面，但是在btn这个调用者里面，所以此this指向的是btn
+
+    // setTimeout(()=>{
+    //   this.disabled = false
+    // },3000)  如果使用箭头函数可以直接调用this，指向的就是btn
+  }*/
+-->
+<script>
+    let btns = document.querySelectorAll('button');
+    for (let i =0;i<=btns.length;i++){
+      btns[i].onclick = function () {
+        this.disabled = true;
+        setTimeout(function () {
+          this.disabled = false
+        }.bind(this),3000)
+      }}
+</script>
+</body>
+<!--
+call apply bind 总结
+相同点：
+都可以改变函数内部的this指向
+区别点：
+1、call和apply 会调用函数，并且改变函数内部this指向
+2、call和apply 传递的参数不一样，call传递参数aru1,aru2...形式 apply必须数组形式[arg]
+3、bind不会调用函数，可以改变函数内部的this指向
+主要应用场景：
+1、call经常做继承
+2、apply经常跟数组有关系，比如借助于数学对象实现数组最大值最小值
+3、bind 不调用函数，但是还想改变this指向，比如改变定时器内部的this指向
+-->
+</html>

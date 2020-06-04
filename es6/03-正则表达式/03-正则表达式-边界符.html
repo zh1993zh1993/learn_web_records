@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+正则表达式的组成：
+一个正则表达式可以由简单的字符构成，比如/abc/，也可以是简单和特殊字符的组合，比如/ab*c/。
+其中 特殊字符也被称为元字符，在正则表达式中是具有特殊意义的专用字符，如^、$、+等
+特殊字符非常多，可以参考：
+MDN：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions
+jQuery手册：正则表达式部分
+正则测试工具：http://tool.oschina.net/regex
+-->
+<!--
+边界符：正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符
+^ 表示匹配行首的文本（以谁开始）
+$ 表示匹配行尾的文本（以谁结束）
+如果 ^ 和 $ 在一起，表示必须是精确匹配
+-->
+</body>
+<script>
+  // 边界符 ^ $
+  const rg = /abc/; // 正则表达式里面不需要加引号 不管是数字型还是字符串型
+  // 只要是包含abc 字符串 就都返回true
+  console.log(rg.test('abc')); // true
+  console.log(rg.test('abcd'));// true
+  console.log(rg.test('aabc'));// true
+  console.log('-------------');
+  const reg = /^abc/; //必须以abc开头
+  console.log(reg.test('abc'));// true
+  console.log(reg.test('abcd'));// true
+  console.log(reg.test('aabc'));// false
+  console.log('-------------');
+  const reg1 = /^abc$/; //精确匹配 要求必须是abc字符串才符合规范
+  console.log(reg1.test('abc'));// true
+  console.log(reg1.test('abcd'));// false
+  console.log(reg1.test('aabc'));// false
+</script>
+</html>

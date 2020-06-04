@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+扩展内置对象
+可以通过原型对象，对原来的内置对象进行扩展自定义方法。比如给数组增加自定义求偶数和的功能
+
+-->
+</body>
+<script>
+  /* 原型对象的应用 扩展内置对象方法*/
+  Array.prototype.sum=function () { //添加方法的操作，不会覆盖原型对象本身的方法
+    let sum = 0;
+    for (let i = 0;i<this.length;i++){
+      sum += this[i];
+    }
+    return sum;
+  }
+
+/*
+注意！！！！！
+报错：数组和字符串内置对象不能给原型对象覆盖操作，只能是上面那种方式
+   Array.prototype={  是会覆盖原型对象的操作办法
+    sum(){
+      let sum = 0;
+      for (let i = 0;i<this.length;i++){
+        sum += this[i];
+      }
+      return sum;
+    }
+  }*/
+
+  let arr=[1,2,3];
+  console.log(arr.sum());
+  console.log(Array.prototype);
+ const arr1 = new Array(11,22,33)
+  console.log(arr1.sum());
+</script>
+</html>

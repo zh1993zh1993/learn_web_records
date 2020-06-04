@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// //数组的创建---使用无参构造函数
+// //   arry1是一个数组对象
+//     var arr1=new Array();
+//     console.log(typeof (arr1));
+// //    指定创建数组，并指定数组长度
+//     var arr2=new Array(5);
+//     arr2[0]='apple';
+//     arr2[1]='pear';
+//     arr2[2]='orange';
+// //    创建并初始化数组
+//     var arr3=new Array('html5','css')
+//     console.log(arr3);
+// //    直接创建数组
+//     var arr4=['html5','css']
+//     var person=['张三',20,'男']
+// //    数组访问通过下标访问
+//    数组常用属性和方法
+    var fruits=new Array(5)
+        fruits[0]='apple';
+        fruits[1]='pear';
+        fruits[2]='orange';
+        document.write('<h2>输出数组</h2>');
+    // for (var i=0;i<fruits.length;i++){
+    //     document.write('第'+(i+1)+'个元素'+fruits[i])
+    // } document.write('<hr/>')遍历数组
+     for (var i in fruits) {
+         document.write('第'+(i+1)+'个元素'+fruits[i])
+     }
+    document.write('反转数组')
+    fruits.reverse();
+</script>
+</body>
+</html>

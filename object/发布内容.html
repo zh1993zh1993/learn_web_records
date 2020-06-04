@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt" value="hhh">
+<input type="button"value="发布内容"id="btn">
+<ul id="uu"></ul>
+<script>
+
+    window.onload=function () {
+    var btn=document.getElementById('btn');
+    var txt=document.getElementById('txt');
+    var ul=document.getElementById('uu');
+    var oLis=ul.getElementsByTagName('li');
+    btn.onclick=function () {
+   var liNode=document.createElement('li');
+   liNode.innerHTML=txt.value;//将value的值赋给前面的文档内容
+   // ul.insertBefore(liNode,oLis[0])兼容性处理用if
+        if (oLis.length>0){
+            ul.insertBefore(liNode,oLis[0]);//方法可在已有的子节点前插入一个新的子节点
+        } else {
+            ul.appendChild(liNode);
+        }
+
+
+    }
+
+
+    }
+
+</script>
+</body>
+</html>

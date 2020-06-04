@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="uu">
+    <li class="red"></li>
+    <li></li>
+    <li class="red"></li>
+    <li></li>
+    <li class="red"></li>
+    <li></li>
+    <li class="red"></li>
+</ul>
+<script>
+    function getByClass(oParent,sClass){
+        //获取oparent下面页面中所有元素，返回数组
+        var ooPs=oParent.document.getElementsByTagName("*");
+        for (var i=0;i<ooPs.length;i++) {
+            if (ooPs[i].className==sClass){
+                ooPs[i].style.backgroundColor='pink';
+            }
+        }
+    }
+    window.onload=function () {
+        var uu=document.getElementById('uu');
+        getByClass(uu,'red');
+    }
+    // window.onload=function () {
+    //     var liRed=document.getElementsByClassName('red');
+    //     for ( var i=0;i<liRed.length;i++){
+    //         liRed[i].style.backgroundColor='red';
+    //     }
+    // }
+</script>
+</body>
+</html>

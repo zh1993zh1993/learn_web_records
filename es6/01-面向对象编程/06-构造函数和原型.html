@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+创建对象可以通过以下三种方式：
+1、对象字面量
+2、new Object()
+3、自定义构造函数
+-->
+<script>
+  // 1、利用new Object()创建对象
+  const obj1=new Object();
+  // 利用对象字面量创建对象
+  const  obj2 ={}
+/*
+*   利用构造函数创建对象 要注意以下两点
+* 1、构造函数用于创建某一类对象，其首字母要大写
+* 2、构造函数要和new 一起使用才有意义· 1·
+* new在执行时会做四件事情：
+* 1、在内存中创建一个新的空对象
+* 2、让this指向这个新的对象
+* 3、执行构造函数里面的代码，给这个心对象添加属性和方法
+* 4、返回这个新对象（所有构造函数里面不需要return）
+* */
+  function Star(uname,age) {
+    this.uname=uname;
+    this.age=age;
+    this.sing=function () {
+      console.log('我会唱歌')
+    }
+  }
+  let ldh = new Star('刘德华',18);
+  const zxy = new Star('张学友',19)
+  console.log(ldh);
+  console.log(zxy);
+  ldh.sing();
+  zxy.sing();
+</script>
+</body>
+</html>

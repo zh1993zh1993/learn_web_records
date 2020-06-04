@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+JavaScript 的成员查找机制（规则）
+1、当访问一个对象属性（包括方法），首先查找这个对象自身有没有该属性
+2、如果没有就查找他的原型（也就是__proto__指向的prototype原型对象）
+3、如果还没有就查找原型对象的原型（Object 的原型对象）
+4、以此类推直到找到Object 为止（null）
+
+-->
+<script>
+  function Star(uname,age) {
+    this.uname=uname;
+    this.age=age;
+  }
+  Star.prototype.sing=function () {
+    console.log('我会唱歌');
+  }
+  // Star.prototype.sex='男';
+  Object.prototype.sex='女';
+  let ldh = new Star('刘德华',17)
+  ldh.sex='男'
+  console.log(ldh.sex);// 输出 '男'，因为就近原则！
+  console.log(Object.prototype);//toString: ƒ toString()方法
+  // 没有toString: ƒ toString()方法 但是因为上级或者上级的上级有此方法，所以仍是可以使用的！
+  console.log(Star.prototype);
+  console.log(ldh);
+  console.log(ldh.toString());
+</script>
+</body>
+</html>

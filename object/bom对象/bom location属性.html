@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+<body>
+<input type="button"value="按钮"id="btn">
+<script>
+window.onload=function () {
+    var oBtn=document.getElementById('btn');
+    oBtn.onclick=function () {
+        location.assign("http://www.baidu.com")//有返回记录
+       location.replace("http://www.baidu.com")//只有当前页面本身
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+index-of()数组，格式：数组.index-of(元素，开始的下标);
+forEach():功能遍历数组，格式：数组.forEach(function(item,index,array){
+item  当前遍历到的元素；
+index  当前遍历到的下标
+array  当前数组
+})
+map:映射   遍历--》操作--》返回；
+reduce：归并
+数组.reduce(function (pre,next,index, array) {
+  pre:上一次遍历return后面的值
+  next:当前遍历到的元素
+    })
+    filter:过滤
+    some 某些 判断return后面的条件是否成立，
+    如果成立，返回true，后面不在进行遍历否则返回false
+    every  要求每一项都符合要求，才会返回true,有一项不符合，
+    判断有元素不符合条件，返回false
+-->
+<script>
+    // var arr=[10 ,20,30,40,50,30];
+    // alert(arr.indexOf(30,3));找出30这个数字的下标
+    // var arr=[10,20,30];
+    // arr.forEach(function (item, index, array) {
+    //     alert(item+","+index+","+array)
+    // })
+    // arr.forEach(alert)
+    // var arr=[20,30,40,50]
+    // var newArr=arr.map(function (value, index, array) {
+    //     return value+2;
+    // })
+    // alert(newArr)先进行遍历，然后每个数字加2
+    // var arr=[20,30,40,50];
+    // var res=arr.reduce(function (pre,next,index, array) {
+    //     alert(pre+","+next);
+    //     return pre+next;
+    // })
+    // alert(res);
+    // var res=[10,20,30,40,50].filter(function (value, index, array) {
+    //     return value>30;找出大于30的数
+    // })
+    // alert(res)
+    var arr=[10 ,20,30,40,50,30];
+   var res=arr.some(function (value, index, array) {
+        return value==30;//判断数组中是否存在30，判断return后面的表达式，在当前数组中是否成立
+    })
+  alert(res)
+</script>
+</body>
+</html>

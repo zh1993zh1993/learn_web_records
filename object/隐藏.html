@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<ul id="uu">
+    <li>aaaa<a href="#">隐藏</a></li>
+    <li>bbbb<a href="#">隐藏</a></li>
+    <li>cccc<a href="#">隐藏</a></li>
+    <li>dddd<a href="#">隐藏</a></li>
+    <li>eeee<a href="#">隐藏</a></li>
+</ul>
+
+<script>
+    window.onload=function () {
+        var uu=document.getElementById('uu');
+        var oAs=uu.getElementsByTagName('a');
+        for (var i=0;i<oAs.length;i++) {
+        oAs[i].onclick=function () {
+            this.parentNode.style.display='none';
+
+        }
+
+        }
+    }
+</script>
+</body>
+</html>

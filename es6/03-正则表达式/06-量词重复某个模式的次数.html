@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 量词是设定某个模式出现的次数
+  /* 这个模式用户只能输入英文字母 数字 下划线 短横线但是有边界符和[] 这就限定了只能多选一*/
+  const  reg = /^[a-zA-Z0-9_-]{6,16}$/;
+  // {6,16} 中间不要有空格
+  console.log(reg.test('a'));
+  console.log(reg.test('8'));
+  console.log(reg.test('18'));//false
+  console.log(reg.test('aa'));//false
+  console.log('-------------------');
+  console.log(reg.test('andy-red'));
+  console.log(reg.test('andy_red'));
+  console.log(reg.test('andy007'));
+  console.log(reg.test('andy!red')); // false
+
+
+</script>
+</body>
+</html>

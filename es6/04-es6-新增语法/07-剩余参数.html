@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+剩余参数：允许我们将一个不定数量的参数表示为一个数组
+-->
+<script>
+  const sum = (...args) => {
+    let total = 0;
+    args.forEach(item => total += item);
+    return total
+  };
+  console.log(sum(10, 20));;
+  console.log(sum(10, 20, 30));;
+
+
+</script>
+</body>
+</html>

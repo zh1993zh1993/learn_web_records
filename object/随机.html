@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机选号</title>
+    <style>
+div{
+    width: 400px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 158px;
+    margin: 5px auto;
+    border: 2px solid blue;
+
+}
+        p{
+            text-align: center;
+
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 32px;
+            margin: 0 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div>0</div>
+<p>
+    <button id="startBtn">开始</button>
+    <button id="stopBtn">停止</button>
+</p>
+<script>
+
+    var timer;//  定時器
+    function startScroll() {
+        // 产生1到100的随机数
+        var num=Math.floor(Math.random()*100+1);
+    //    把随机数写到div,查询选择器
+        document.querySelector('div').innerHTML=num.toString();
+    //    使用定时器
+        timer=setTimeout('startScroll()',100);
+    //    setInterval('要做的事情，'时间)
+    }
+    //    单机结束按钮时要做的事情写成函数
+    function stopScroll(){
+        clearTimeout(timer);
+    }
+
+//    获取开始按钮
+    document.getElementById('startBtn').onclick=startScroll;
+
+
+    document.getElementById('stopBtn').onclick=stopScroll;
+
+
+</script>
+</body>
+</html>

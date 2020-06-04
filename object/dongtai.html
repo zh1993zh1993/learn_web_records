@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态显示系统时间</title>
+    <style>
+        .top{
+            width: 900px;
+            margin: 10px auto;
+        }
+        .time{
+            width: 900px;
+            margin: 5px auto;
+            font-size: 32px;
+            color: blue;
+            font-weight: bold;
+        }
+        .time input{
+            border: none;
+            width: 400px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 32px;
+            color: paleturquoise;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <img src="../images5/6.jpg">
+</div>
+<div class="time">
+    当前时间：
+    <input type="text" id="time">
+</div>
+    <script>
+        window.onload=displayTime;
+        //自定义函数显示时间
+        function displayTime() {
+            var myTime=new Date();
+            var hour=myTime.getHours();//获取小时
+            var minute=myTime.getMinutes();
+            var seconds=myTime.getSeconds();
+            if (hour<10){
+                hour='0'+hour;
+            }
+            if (minute<10){
+                minute='0'+minute;
+            }
+            if (seconds<10){
+                seconds='0'+seconds;
+            }
+            document.getElementById('time').value=hour+':'+minute+':'+seconds;
+            //需要增加一个定时器
+            setTimeout('displayTime()',1000);
+        }
+
+    </script>
+
+</body>
+</html>

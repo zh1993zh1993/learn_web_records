@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //在js里面创建一个div createElement
+    var div=document.createElement('div');
+    //在body里面插入一个div标签appendChild，上面的div
+    document.body.appendChild(div);
+    div.style.width="100px";
+    div.style.height="100px";
+    div.style.backgroundColor="red";
+    div.style.position="absolute";
+    div.style.left="0px";
+    div.style.top="0px";
+    // setInterval(function () {},100)每隔100毫秒执行function内的函数一次
+    //div内输出是字符串，为了让输出数字，要加上parseInt
+    // var speed=1;
+    // var timer=setInterval(function () {
+    //     speed+=speed/20;
+    //     div.style.left=parseInt(div.style.left)+speed+"px";
+    //     div.style.top=parseInt(div.style.top)+speed+"px"
+    //     if (parseInt(div.style.top)>200&&parseInt(div.style.left>200)){
+    //         clearInterval(timer)
+    //     }
+    // },100);
+document.onkeydown=function (e) {
+switch (e.which) {
+    case 38:
+        div.style.top=parseInt(div.style.top)-5+"px";
+        break;
+    case 40:
+        div.style.top=parseInt(div.style.top)+5+"px";
+        break;
+    case 37:
+        div.style.left=parseInt(div.style.left)-5+"px";
+        break;
+    case 39:
+        div.style.left=parseInt(div.style.left)+5+"px";
+        break;
+}
+
+}
+</script>
+</body>
+</html>

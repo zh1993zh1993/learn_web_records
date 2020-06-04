@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 800px;
+        height: 280px;
+        overflow: hidden;
+        margin: 5px auto;
+    }
+    .one{
+        width: 50px;
+        height: 100px;
+        position: absolute;
+        transform: translate(360px ,-185px);
+        background-color: black;
+        opacity: 0.3;
+    }
+    .two{
+        width: 50px;
+        height: 100px;
+        transform: rotate(180deg);
+       position: relative;
+       top:-190px;
+        right: -375px;
+        background-color: black;
+        opacity: 0.3;
+    }
+
+</style>
+<body>
+<div>
+    <img src="../images4/01.jpg" id="pic"/>
+
+</div>
+<div class="one" id="left">
+    <img src="../images4/spirte.png">
+</div>
+<div class="two" id="right">
+    <img src="../images4/spirte.png">
+</div>
+<script>
+//创建数组存照片
+    var picArr=new Array();
+    picArr[0]='../images4/01.jpg';
+    picArr[1]='../images4/02.jpg';
+    picArr[2]='../images4/03.jpg';
+    picArr[3]='../images4/04.jpg';
+    picArr[4]='../images4/05.jpg';
+    var timer;
+    var index=0;
+    function showPic() {
+        document.getElementById('pic').src=picArr[index];
+        //如果index小于数组的最大下标，则index自更新
+        if (index<picArr.length-1){
+            index++;
+        } else {
+            //通过模运算来设置index的取值范围
+            index=index%picArr.length;
+        }
+        timer=setTimeout('showPic()',2000);
+    }
+    window.onload=showPic;
+    function o () {
+        var oLeft=document.getElementById('left');
+        var oRight=document.getElementById('right');
+        var oImg=document.getElementById('pic');
+        var picArr=['../images4/01.jpg','../images4/02.jpg','../images4/03.jpg','../images4/04.jpg','../images4/05.jpg']
+        var num=0;
+        oImg.src=picArr[num];
+        oLeft.onclick=function () {
+            num++;
+            if (num==picArr.length) {
+                num=0;
+            }
+            oImg.src=picArr[num];
+        };
+        oRight.onclick=function () {
+            num--;
+            if (num==-1){
+                num=picArr.length-1
+            }
+            oImg.src=picArr[num];
+        }
+
+    }o();
+
+
+
+</script>
+</body>
+</html>

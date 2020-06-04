@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <script>
+      // var age = 100;
+      var obj = {
+        age:20,
+        say:() => {
+          alert(this.age)
+          // 因为指向是是obj这个对象，但是obj没有作用域，所以this指向的还是全局（window）的作用域
+          // 所以最后弹出undefined
+        }
+      };
+      obj.say()
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+解构赋值:ES6中允许从数组中提取值，按照对应位置，对变量赋值。对象也可以实现解构
+数组解构
+-->
+<script>
+  /*数组解构*/
+  let ary = [1,2,3];
+  let [a,b,c] = ary;
+  console.log(a);
+  console.log(b);
+  console.log(c);
+
+  /*对象解构--允许我们使用变量的名字匹配对象的属性 匹配成功将对象属性的值赋值给变量*/
+  let person = {
+    name :'lisa',
+    age:30,
+    sex:'男'
+  };
+  let {name:myName} = person;
+  console.log(myName);
+  /*
+  let {name,age,sex} = person;
+  console.log(name);
+  console.log(age);
+  console.log(sex);*/
+
+</script>
+</body>
+</html>

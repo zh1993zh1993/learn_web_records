@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建元素</title>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button"value="创建元素"id="btn">
+<ul id="uu"></ul>
+<script>
+    window.onload=function () {
+        var btn=document.getElementById('btn');
+        btn.onclick=function () {
+            var liNode=document.createElement('li');
+            var ul=document.getElementById('uu');
+            ul.appendChild(liNode)
+        }
+    }
+</script>
+</body>
+</html>

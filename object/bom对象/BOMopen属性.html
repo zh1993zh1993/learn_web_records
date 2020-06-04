@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+BOM：就是浏览器的对象模型
+浏览器可以通过调用系统对话框，向用户显示信息
+系统提供了三个函数，可以完成系统对话框的操作
+alert（）直接弹出警告框
+confirm()弹出带有确定和取消按钮的警告框
+返回值：确定返回true；取消非农户false
+prompt():弹出带输入的提示框,
+参数：1，要在提示框显示的内容。2，输入框内默认的值
+window.open()
+open():
+1,加载URL
+2，窗口名称或者窗口目标
+3，一串具有特殊意义的字符串
+opener:打开子窗口的父窗口的window52集
+-->
+<input type="button"value="按钮" id="btn">
+<script>
+    // confirm("请选择")
+// prompt('请输入','9')
+//     var res=prompt('请输入','hhh');
+//     alert(res)
+
+
+    window.onload=function () {
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick=function () {
+            // 如果只有一个参数，点击按钮，打开加载多个百度页面
+            // open("http:www.baidu.com")
+            //如果有两个参数，是给打开的新窗口起一个名字，不会跳转多个百度页面
+            // open("http:www.baidu.com","百度")
+            //如果有三个参数，加载时根据参数的定义打开窗口的大小和坐标
+            open("http:www.baidu.com","百度",'width=400,height=200,left=200,top=200')
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+姓名：<input type="text"value=""id="name">
+年龄：<input type="text"value=""id="age">
+添加<input type="button"value=""id="btn"value="添加">
+<table border="1" width="500px" id="table1">
+    <thead>
+    <td>ID</td>
+    <td>姓名</td>
+    <td>年龄</td>
+    <td>操作</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>lucy</td>
+        <td>19</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    window.onload=function () {
+        var oTab=document.getElementById('table1');
+        var oAge=document.getElementById('age');
+        var oName=document.getElementById('name');
+        var oBtn=document.getElementById('btn');
+        //创建单元格,添加内容ID
+        oBtn.onclick=function () {
+            var oTr=document.createElement('tr');
+            var oTd=document.createElement('td');
+            oTd.innerHTML=oTab.tBodies[0].rows.length+1;
+            oTr.appendChild(oTd);
+            var oTd=document.createElement('td');
+            oTd.innerHTML=oName.value;
+            oTr.appendChild(oTd);
+            var oTd=document.createElement('td');
+            oTd.innerHTML=oAge.value;
+            oTr.appendChild(oTd);
+            var oTd=document.createElement('td');
+            oTd.innerHTML='<a href="#">删除</a>';
+            oTr.appendChild(oTd);oTab.tBodies[0].appendChild(oTr);
+            for (var i=0;i<oAs.length;i++){
+                oAs[i].onclick=function () {
+                 oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+                }
+            }
+
+
+        }  }
+
+</script>
+</body>
+</html>

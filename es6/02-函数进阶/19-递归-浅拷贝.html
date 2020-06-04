@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+浅拷贝和深拷贝
+1、浅拷贝只是拷贝一层，更深层次对象级别的只拷贝引用
+2、深拷贝拷贝多层，每一级别的数据都会拷贝
+3、Object.assign(target,...sources) es6新增方法可以浅拷贝
+-->
+<script>
+
+  const obj ={
+    id:1,
+    name:'andy',
+    msg:{
+      age:12
+    }
+  };
+  const o ={};
+  /* 浅拷贝方法一：for(let k in obj){}
+  for (let k in obj){
+    // k 是属性名 obj[k] 属性值
+    o[k] = obj[k]
+  }
+  console.log(o);
+  o.msg.age=20; // 浅拷贝后的o对象修改值，会影响obj里面同样的值被修改
+  console.log(obj);*/
+  console.log('--------分割线-------');
+  // 浅拷贝方法二：Object.assign(target,...sources) es6新增方法可以浅拷贝
+  Object.assign(o,obj);
+  console.log(o);
+  o.msg.age = 20;
+  console.log(obj);
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*  Object.defineProperty() 定义新属性或者修改原有的属性
+  * Object.defineProperty(obj,prop,descriptor)
+  * obj:必需。目标对象
+  * prop:必需。需定义或者修改的属性名字
+  * descriptor:必需。目标属性所拥有的特性
+  * 第三个参数的descriptor说明：以对象形式{}书写
+  value：设置属性的值，默认为undefined
+  writable:值是否可以重写。true|false默认为false
+  enumerable:目标属性是否可以被枚举。true|false默认为false
+  configurable：目标属性是否可以被删除或是否可以再次修改特性。true|false默认为false
+  * */
+  const obj={
+    id:1,
+    pname:'小米',
+    price:1999
+  };
+  /*1、原始定义添加属性方法
+   obj.num = 1000;
+  obj.price=999;
+  console.log(obj);
+  */
+// 2、Object.defineProperty() 定义新属性或者修改原有的属性
+  Object.defineProperty(obj,'num',{
+    value:1000,
+  });
+  Object.defineProperty(obj,'price',{
+    value:9.9,
+  });
+  Object.defineProperty(obj,'id',{
+    //如果只为false 不允许修改这个属性值 默认值也是false
+    writable:false
+  });
+  obj.id=2;//修改不成功
+  Object.defineProperty(obj,'address',{
+    value:'中国山东找蓝翔',
+    writable:false,
+    enumerable:false,// 如果值为false 则不允许遍历，默认值是 false
+    configurable:false
+    /*configurable 如果为false 则不允许删除这个属性，
+    不允许修改第三个参数里面的特性 默认为false */
+  });
+  console.log(obj);
+  console.log(Object.keys(obj));
+  delete obj.pname
+</script>
+</body>
+</html>

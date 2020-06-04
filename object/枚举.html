@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../jquery-1.11.3/jquery.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    // Father.prototype.lastName="deng"
+    // function Father() {
+    //
+    // }
+    // function Son() {
+
+    // }
+    //extend/inherit：继承模式
+    //圣杯模式
+    // function inherit(Target,Origin){
+    //     function F(){};
+    //     F.prototype=Origin.prototype;
+    //    Target.prototype=new F();
+    //    Target.prototype.constructor=Target;
+    //    Target.prototype.uber=Origin.prototype;
+    // }
+    // inherit(Son,Father);
+    // var son=new Son();
+    // var father=new Father();
+    //通过闭包实现私有化的过程，init是初始化的意思，不污染全局
+    // var init=(function () {
+    //     var name='abc';
+    //     function callName() {
+    //         console.log(name);
+    //     }
+    //     return function () {
+    //         callName();
+    //     }
+    // }());
+    // init();
+    // var deng={
+    //     wife1:{name:"xiaozhang"},
+    //     wife2:{name:"xiaozhang"},
+    //     wife3:{name:"xiaozhang"},
+    //     wife4:{name:"xiaozhang"},
+    //     wife5:{name:"xiaozhang"},
+    //
+    // sayWife:function (num) {
+    //     return this['wife' + num];
+    // }
+    // }
+    var obj={
+        name:'zh',
+        age:123,
+        sex:'male',
+        height:150,
+        weight:75,
+        __proto__:{
+            lastName:"deng"
+        }
+    }//prop是可以变的，是存东西的包名，in后面是要遍历的属性名，obj是要被遍历的名字
+    //hasOwnProperty:判断方法，true就打印自身的属性
+    // for (var prop in obj){
+    //     if (!obj.hasOwnProperty(prop)){
+    //         document.write(obj[prop]);
+    //     }
+    // }
+</script>
+</body>
+</html>

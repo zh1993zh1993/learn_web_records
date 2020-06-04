@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 系统提供的排序：reverse（）：逆向排序
+格式：数组.reverse;  sort():升序排序（从小到大）默认按照字符串进行排序-->
+<script>
+    // var arr=[10,20,30,40];
+    // arr.reverse();
+    // alert(arr);
+    // var arr=[10,1,5,15];
+    // arr.sort();
+    // alert(arr)
+    //冒泡排序，从小到大
+    var arr=[9,8,7,6,5,4]
+    for (var i=0;i<arr.length;i++){//比较轮次
+    //    每一轮比较的次数
+        for (var j=0;j<arr.length-i-1;j++){
+            if (arr[j]>arr[j+1]){
+                var temp=arr[j+1];
+                arr[j+1]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    alert(arr)
+
+
+</script>
+</body>
+</html>
